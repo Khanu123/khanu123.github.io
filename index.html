@@ -1,624 +1,132 @@
-<!DOCTYPE html>
-<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<!doctype html>
+<html lang="en">
 <head>
-
-   <!--- basic page needs
-   ================================================== -->
-   <meta charset="utf-8">
-	<title>Umar Khan Muhammad</title>
-	<meta name="description" content="">  
-	<meta name="author" content="">
-
-   <!-- mobile specific metas
-   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
- 	<!-- CSS
-   ================================================== -->
-   <link rel="stylesheet" href="css/base.css">  
-   <link rel="stylesheet" href="css/main.css">
-   <link rel="stylesheet" href="css/vendor.css">     
-
-   <!-- script
-   ================================================== -->   
-	<script src="js/modernizr.js"></script>
-	<script src="js/pace.min.js"></script>
-
-   <!-- favicons
-	================================================== -->
-	<link rel="icon" type="image/png" href="favicon.png">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cybersecurity portfolio for Umar Khan Muhammad, focused on Python, defensive security, log analysis, and ethical security tooling.">
+  <title>Umar Khan Muhammad | Cybersecurity Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1324;
+      --panel: #111c33;
+      --text: #eef4ff;
+      --muted: #aebbd0;
+      --accent: #38bdf8;
+      --line: #263652;
+      --card: #f8fafc;
+      --ink: #172033;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fb; color: var(--ink); line-height: 1.6; }
+    a { color: #0369a1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header { background: linear-gradient(135deg, var(--bg), #14213d); color: var(--text); padding: 72px 24px; }
+    nav { max-width: 1120px; margin: 0 auto 56px; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+    nav strong { letter-spacing: .03em; }
+    nav div { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text); }
+    .hero { max-width: 1120px; margin: 0 auto; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 700; }
+    h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.05; margin: 12px 0 20px; max-width: 850px; }
+    .hero p { max-width: 760px; color: var(--muted); font-size: 20px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button { display: inline-block; padding: 12px 18px; border-radius: 8px; border: 1px solid var(--accent); color: var(--text); font-weight: 700; }
+    .button.primary { background: var(--accent); color: #082032; }
+    main { max-width: 1120px; margin: 0 auto; padding: 44px 24px; }
+    section { margin: 0 0 48px; }
+    h2 { font-size: 30px; margin: 0 0 14px; }
+    .lead { color: #475569; max-width: 780px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 22px; }
+    .card { background: white; border: 1px solid #dbe3ef; border-radius: 8px; padding: 20px; box-shadow: 0 8px 28px rgba(15, 23, 42, .06); }
+    .card h3 { margin: 0 0 8px; font-size: 20px; }
+    .tagline { color: #475569; margin: 0 0 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+    .tag { background: #e0f2fe; color: #075985; padding: 4px 8px; border-radius: 999px; font-size: 13px; font-weight: 700; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill { background: white; border: 1px solid #dbe3ef; border-radius: 999px; padding: 8px 12px; font-weight: 700; }
+    footer { background: var(--bg); color: var(--muted); padding: 28px 24px; text-align: center; }
+    footer a { color: var(--accent); }
+  </style>
 </head>
-
-<body id="top">
-
-	<!-- header 
-   ================================================== -->
-   <header>   	
-   	<div class="row">
-
-   		<div class="top-bar">
-   			<a class="menu-toggle" href="#"><span>Menu</span></a>
-
-	   		<div class="logo">
-		         <a href="index.html">KARDS</a>
-		      </div>		      
-
-		   	<nav id="main-nav-wrap">
-					<ul class="main-navigation">
-						<li class="current"><a class="smoothscroll"  href="#intro" title="">Home</a></li>
-						<li><a class="smoothscroll"  href="#about" title="">About</a></li>
-						<li><a class="smoothscroll"  href="#portfolio" title="">Portfolio</a></li>					
-						<li><a class="smoothscroll"  href="#contact" title="">Contact</a></li>				
-					</ul>
-				</nav>    		
-   		</div> <!-- /top-bar --> 
-   		
-   	</div> <!-- /row --> 		
-   </header> <!-- /header -->
-
-	<!-- intro section
-   ================================================== -->
-   <section id="intro">   
-
-   	<div class="intro-overlay"></div>	
-
-   	<div class="intro-content">
-   		<div class="row">
-
-   			<div class="col-twelve">
-
-	   			<h5>Hello, World.</h5>
-	   			<h1>I'm Umar Khan Muhammad.</h1>
-
-	   			<p class="intro-position">
-	   				<span>Cyber Security Student</span>
-	   				<span>Python Developer</span> 
-	   			</p>
-
-	   			<a class="button stroke smoothscroll" href="#about" title="">Find Out More About Me</a>
-
-	   		</div>  
-   			
-   		</div>   		 		
-   	</div> <!-- /intro-content --> 
-
-   	<ul class="intro-social">        
-		<li><a href="https://www.instagram.com/khanu.great/"><i class="fa fa-instagram"></i></a></li>
-      </ul> <!-- /intro-social -->      	
-
-   </section> <!-- /intro -->
-
-
-   <!-- about section
-   ================================================== -->
-   <section id="about">  
-
-   	<div class="row section-intro">
-   		<div class="col-twelve">
-
-   			<h5>About</h5>
-   			<h1>Let me introduce myself.</h1>
-
-   			<div class="intro-info">
-
-   				<img src="images/profile-pic.jpg" alt="Profile Picture">
-
-   				<p class="lead"> I am currently studying at Anglia Ruskin University in Cyber Security i currently work on small projects and making my way up on project.</p>
-   			</div>   			
-
-   		</div>   		
-   	</div> <!-- /section-intro -->
-
-   	<div class="row about-content">
-
-   		<div class="col-six tab-full">
-
-   			<h3>Profile</h3>
-
-   			<ul class="info-list">
-   				<li>
-   					<strong>Fullname:</strong>
-   					<span>Umar Khan Muhammad</span>
-   				</li>
-   				<li>
-   					<strong>Birth Date:</strong>
-   					<span>June 20, 2004</span>
-   				</li>
-   				<li>
-   					<strong>Occupation:</strong>
-   					<span>Student at Anglia Ruskin Unversity,
-						Cambridge
-					</span>
-   				</li>
-   				<li>
-   					<strong>Email:</strong>
-   					<span>Umargreat2004@gmail.com</span>
-   				</li>
-
-   			</ul> <!-- /info-list -->
-
-   		</div>
-
-   		<div class="col-six tab-full">
-
-			<h3>Skills</h3>
-			<p></p>
-
-			 <ul class="skill-bars">
-				<li>
-					<div class="progress percent70"><span>70%</span></div>
-					<strong>Python</strong>
-				</li>
-				<li>
-					<div class="progress percent65"><span>65%</span></div>
-					<strong>HTML</strong>
-				</li>
-				<li>
-					<div class="progress percent60"><span>60%</span></div>
-					<strong>Sudo Code</strong>
-				</li>
-				<li>
-					<div class="progress percent50"><span>50%</span></div>
-					<strong>PHP</strong>
-				</li>
-				<li>
-
-					<div class="progress percent45"><span>45%</span></div>
-					<strong>Wordpress</strong>
-				</li>
-   
-			 </ul> <!-- /skill-bars -->		
-
-		</div>
-
-	</div>
-	<!-- Portfolio Section
-   ================================================== -->
-	<section id="portfolio">
-
-		<div class="row section-intro">
-   		<div class="col-twelve">
-
-   			<h5>Portfolio</h5>
-   			<h1>Check Out Some of My Works.</h1>
-
-   			<p class="lead"> These are some personal projects i have created i am always creting projecta</p>
-
-   		</div>   		
-	</div> <!-- /section-intro--> 
-
-	<div class="row portfolio-content">
-
-		<div class="col-twelve">
-
-			<!-- portfolio-wrapper -->
-		  <div id="folio-wrapper" class="block-1-2 block-mob-full stack">
-
-			  <div class="bgrid folio-item">
-				<div class="item-wrap">
-					<img src="images/portfolio/liberty.jpg" alt="Liberty">
-				   <a href="#modal-01" class="overlay">	                  	           
-					  <div class="folio-item-table">
-						  <div class="folio-item-cell">
-									 <h3 class="folio-title">Rock, Paper, Sciccors</h3>	     					    
-									   <span class="folio-types">
-										   Projects
-									 </span>
-								 </div>	                      	
-					  </div>                    
-				   </a>
-				</div>	               
-				 </div> <!-- /folio-item -->
-
-				 <div class="bgrid folio-item">
-				<div class="item-wrap">
-					<img src="images/portfolio/shutterbug.jpg" alt="Shutterbug">
-					<a href="#modal-02" class="overlay">              		                  
-					  <div class="folio-item-table">
-						  <div class="folio-item-cell">
-							  <h3 class="folio-title">General Knowledge</h3>	     					    
-									  <span class="folio-types">
-										   Projects
-									</span>		     		
-								 </div> 	                      	
-					  </div>                    
-				   </a>
-				</div>
-				 </div> <!-- /folio-item -->
-
-			 <div class="bgrid folio-item">
-				<div class="item-wrap">
-					<img src="images/portfolio/clouds.jpg"alt="Clouds">
-				   <a href="#modal-03" class="overlay">             		                  
-					  <div class="folio-item-table">
-						  <div class="folio-item-cell">
-							  <h3 class="folio-title">Timed Maths</h3>	     					    
-									  <span class="folio-types">
-										   Projects
-									</span>		     		
-								 </div> 	                      	
-					  </div>                    
-				   </a>
-				</div>
-	            <!-- modal popups - begin
-	            ============================================================= -->
-				<div id="modal-01" class="popup-modal slider mfp-hide">	
-					<div class="media">
-						<img src="images/portfolio/modals/m-liberty.jpg" alt="" />
-					</div>      	
-					<div class="description-box">
-						<h4>Rock, Paper, Scissors</h4>		      
-						<p>This code showcases the basic concepts of user input, random number generation, conditional statements, loops, and tracking scores in a simple rock-paper-scissors game. It's a great example for understanding how programming logic can be used to create interactive games.</p>
-						<div class="categories">Projects</div>			               
-					</div>
-					<div class="link-box">
-						<a href="https://github.com/Khanu123/R.P.S.py" target="_blank">Details</a>
-						<a href="#" class="popup-modal-dismiss">Close</a>
-					</div>	      
-				</div> <!-- /modal-01 -->
-				
-				<div id="modal-02" class="popup-modal slider mfp-hide">	
-					<div class="media">
-						<img src="images/portfolio/modals/m-shutterbug.jpg" alt="" />
-					</div>      	
-					<div class="description-box">
-						<h4>General Knowledge</h4>		      
-						<p>Looping: The code uses a loop to go through each question and its options. User Input: The code prompts the user for input and processes it. Conditional Statements: The code checks whether the user's guess is correct and responds accordingly. Lists and Tuples: The code uses lists and tuples to store questions, options, guesses, and answers. String Formatting: The code uses string formatting to display results and messages. In summary, the code simulates a simple quiz game, where users answer multiple-choice questions, and their score is calculated and displayed at the end. It's a good example of using basic programming constructs to create an interactive quiz experience.</p>
-						<div class="categories">Projects</div>			               
-					</div>
-					<div class="link-box">
-						<a href="https://github.com/Khanu123/GeneralKnowleadge" target="_blank">Details</a>
-						<a href="#" class="popup-modal-dismiss">Close</a>
-					</div>	      
-				</div> <!-- /modal-02 -->
-				
-				<div id="modal-03" class="popup-modal slider mfp-hide">	
-					<div class="media">
-						<img src="images/portfolio/modals/m-clouds.jpg" alt="" />
-					</div>      	
-					<div class="description-box">
-						<h4>Timed Maths Quiz</h4>		      
-						<p>A separator line is printed. The player is informed about their performance, including the total time taken to complete the quiz. The number of incorrect answers (wrong) is also displayed. In summary, this code provides a time-constrained math quiz. Users have to answer a series of arithmetic problems quickly, and their incorrect answers are tracked. This type of game can help users improve their mental math skills and increase their familiarity with basic arithmetic operations. It also introduces concepts like random number generation, timed tasks, and user input processing.</p>
-						<div class="categories">Projects</div>			               
-					</div>
-					<div class="link-box">
-						<a href="https://github.com/Khanu123/TimedMaths" target="_blank">Details</a>
-						<a href="#" class="popup-modal-dismiss">Close</a>
-					</div>	      
-				</div>
-				
-
-				   <!-- modal popups - end
-	            ============================================================= -->
-
-	         </div> <!-- /portfolio-wrapper --> 
-
-   		</div>  <!-- /twelve -->   
-
-   	</div> <!-- /portfolio-content --> 
-		
-	</section> <!-- /portfolio --> 
-
-
-	<!-- services Section
-   ================================================== -->
-	<section id="services">
-
-		<div class="overlay"></div>
-
-		<div class="row section-intro">
-   		<div class="col-twelve">
-
-   			<h5>Services</h5>
-   			<h1>What Can I Do For You?</h1>
-
-   			<p class="lead">I am delighted to introduce my nascent venture into the realm of digital services. With a fervent commitment to quality and innovation, I proudly extend an array of meticulously curated offerings tailored to your unique requirements. As a newcomer in this dynamic landscape, I am dedicated to translating your concepts into impactful digital realities. From conceptualizing and optimizing engaging online platforms to devising comprehensive social media strategies, my services are underpinned by a foundation of creativity and dedication. Despite my recent foray into this domain, my resolute determination to excel and provide exceptional value propels me forward. I eagerly anticipate the opportunity to collaborate with you, leveraging my burgeoning expertise to deliver solutions that catalyze your digital success.</p>
-
-   		</div>   		
-   	</div> <!-- /section-intro -->
-
-   	<div class="row services-content">
-
-   		<div id="owl-slider" class="owl-carousel services-list">
-
-	      	<div class="service">	
-
-	      		<span class="icon"><i class="icon-earth"></i></span>            
-
-	            <div class="service-content">	
-
-	            	 <h3>Webdesign</h3>
-
-		            <p class="desc">Embark on a journey of digital transformation with me as your dedicated web designer, ready to breathe life into your website. My expertise is your gateway to a virtual realm of possibilities. I craft interfaces that seamlessly marry visual allure with seamless functionality, ensuring every click is intuitive and engaging. From the arrangement of elements to the selection of colors and typography, I pay meticulous attention to detail, creating an immersive experience for your users. With a strong grasp of responsive design, your website will dazzle across all devices, guaranteeing a consistent and captivating presence. Whether you're starting afresh or seeking to revitalize your current platform, I'm here to translate your ideas into a digital masterpiece that resonates. Let's collaborate to turn your digital aspirations into a reality that leaves an indelible mark on the online landscape.
-	         		</p>
-	         		
-	         	</div> 	         	                          
-
-				</div> <!-- /service -->
-
-			   <div class="service">
-
-			   	<span class="icon"><i class="icon-image"></i></span>	            
-
-	            <div class="service-content">
-
-	            	<h3>Graphics Design</h3>
-
-		            <p class="desc">Elevate your online presence with a skilled graphic designer's touch, offering a spectrum of tailored services for your website. Craft intuitive user interfaces that captivate visitors, while thoughtfully designed icons and illustrations breathe vibrancy into your content. Seamlessly integrate branding elements, colors, and typography for a cohesive identity. With an eye for responsive design, ensure your website looks stunning on all devices. Experience the fusion of innovation and functionality, creating a digital masterpiece that resonates with your audience and enhances your online impact.
-	        			</p> 
-
-	            </div>	               
-
-
-			   </div> <!-- /service -->
-
-	      </div> <!-- /services-list -->
-   		
-   	</div> <!-- /services-content -->
-		
-	</section> <!-- /services -->	
-
-
-	<!-- stats Section
-   ================================================== -->
-	<section id="stats" class="count-up">
-
-		<div class="row">
-			<div class="col-twelve">
-
-				<div class="block-1-6 block-s-1-3 block-tab-1-2 block-mob-full stats-list">
-
-					<div class="bgrid stat">
-
-						<div class="icon-part">
-							<i class="icon-pencil-ruler"></i>
-						</div>
-
-						<h3 class="stat-count">
-							500
-						</h3>
-
-						<h5 class="stat-title">
-							Projects Completed
-						</h5>
-
-					</div> <!-- /stat -->					
-
-					<div class="bgrid stat">
-
-						<div class="icon-part">
-							<i class="icon-users"></i>
-						</div>
-
-						<h3 class="stat-count">
-							500
-						</h3>
-
-						<h5 class="stat-title">
-							Happy Clients
-						</h5>
-
-					</div> <!-- /stat -->
-
-					<div class="bgrid stat">
-
-						<div class="icon-part">
-							<i class="icon-badge"></i>
-						</div>
-
-						<h3 class="stat-count">
-							999
-						</h3>
-
-						<h5 class="stat-title">
-							Naps
-						</h5>
-
-					</div> <!-- /stat -->									
-
-					<div class="bgrid stat">
-
-						<div class="icon-part">
-							<i class="icon-light-bulb"></i>
-						</div>
-
-						<h3 class="stat-count">
-							999
-						</h3>
-
-						<h5 class="stat-title">
-							Crazy Ideas
-						</h5>
-
-					</div> <!-- /stat -->
-
-					<div class="bgrid stat">
-
-						<div class="icon-part">
-							<i class="icon-cup"></i>
-						</div>
-
-						<h3 class="stat-count">
-							999
-						</h3>
-
-						<h5 class="stat-title">
-							Coffee Cups
-						</h5>
-
-					</div> <!-- /stat -->
-
-					<div class="bgrid stat">
-
-						<div class="icon-part">
-							<i class="icon-clock"></i>
-						</div>
-
-						<h3 class="stat-count">
-							7200
-						</h3>
-
-						<h5 class="stat-title">
-							Hours
-						</h5>
-
-					</div> <!-- /stat -->
-
-				</div> <!-- /stats-list -->
-
-			</div> <!-- /twelve -->
-		</div> <!-- /row -->
-
-	</section> <!-- /stats -->
-
-	
-   <!-- contact
-   ================================================== -->
-	<section id="contact">
-
-		<div class="row section-intro">
-   		<div class="col-twelve">
-
-   			<h5>Contact</h5>
-   			<h1>I'd Love To Hear From You.</h1>
-
-   			<p class="lead"></p>
-
-   		</div> 
-   	</div> <!-- /section-intro -->
-
-   	<div class="row contact-form">
-
-   		<div class="col-twelve">
-
-            <!-- form -->
-            <form name="contactForm" id="contactForm" method="post" action="">
-      			<fieldset>
-
-                  <div class="form-field">
- 						   <input name="contactName" type="text" id="contactName" placeholder="Name" value="" minlength="2" required="">
-                  </div>
-                  <div class="form-field">
-	      			   <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="">
-	               </div>
-                  <div class="form-field">
-	     				   <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="">
-	               </div>                       
-                  <div class="form-field">
-	                 	<textarea name="contactMessage" id="contactMessage" placeholder="message" rows="10" cols="50" required=""></textarea>
-	               </div>                      
-                 <div class="form-field">
-                     <button class="submitform">Submit</button>
-                     <div id="submit-loader">
-                        <div class="text-loader">Sending...</div>                             
-       				      <div class="s-loader">
-								  	<div class="bounce1"></div>
-								  	<div class="bounce2"></div>
-								  	<div class="bounce3"></div>
-								</div>
-							</div>
-                  </div>
-
-      			</fieldset>
-      		</form> <!-- Form End -->
-
-            <!-- contact-warning -->
-            <div id="message-warning">            	
-            </div>            
-            <!-- contact-success -->
-      		<div id="message-success">
-               <i class="fa fa-check"></i>Your message was sent, thank you!<br>
-      		</div>
-
-         </div> <!-- /col-twelve -->
-   		
-   	</div> <!-- /contact-form -->
-
-	   <div class="row contact-info">
-
-		<div class="col-four tab-full">
-
-			<div class="icon">
-				<i class="icon-pin"></i>
-			</div>
-
-			<h5>Where to find me</h5>
-
-			<p>
-		 Crawley, UK<br>
-		 London, UK <br>
-		 Cambridge, UK
-		 </p>
-
-		</div>
-
-		<div class="col-four tab-full collapse">
-
-			<div class="icon">
-				<i class="icon-mail"></i>
-			</div>
-
-			<h5>Email Me At</h5>
-
-			<p>Umargreat2004@gmail.com<br>
-							     
-			</p>
-
-		</div>
-
-		<div class="col-four tab-full">
-
-			<div class="icon">
-				<i class="icon-phone"></i>
-			</div>
-
-			<h5>Call Me At</h5>
-
-			<p>Phone: (+44)7462956324<br>
-			</p>
-
-		</div>
-		
-   		
-   	</div> <!-- /contact-info -->
-		
-	</section> <!-- /contact -->
-
-
-   <!-- footer
-   ================================================== -->
-
-   <footer>
-     	<div class="row">
-
-     		<div class="col-six tab-full pull-right social">
-
-     			<ul class="footer-social">        
-					<li><a href="https://www.instagram.com/khanu.great/"><i class="fa fa-instagram"></i></a></li>
-			   </ul> 
-	      		
-	      </div>
-
-	      	<div id="go-top">
-		         <a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>
-		      </div>
-
-      	</div> <!-- /row -->     	
-   </footer>  
-
-   <div id="preloader"> 
-    	<div id="loader"></div>
-   </div> 
-
-   <!-- Java Script
-   ================================================== --> 
-   <script src="js/jquery-2.1.3.min.js"></script>
-   <script src="js/plugins.js"></script>
-   <script src="js/main.js"></script>
-
+<body>
+  <header>
+    <nav>
+      <strong>Umar Khan Muhammad</strong>
+      <div>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="eyebrow">Cybersecurity Student | Python Developer | Defensive Security</div>
+      <h1>Building practical security tools for detection, analysis, and safer systems.</h1>
+      <p>I am a cybersecurity student focused on Python automation, blue-team tooling, log analysis, and ethical security research. My portfolio is built around hands-on projects that show how I think, learn, and improve systems.</p>
+      <div class="actions">
+        <a class="button primary" href="https://github.com/Khanu123" target="_blank" rel="noreferrer">View GitHub</a>
+        <a class="button" href="mailto:Umargreat2004@gmail.com">Email Me</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <p class="lead">These projects show a mix of defensive cybersecurity, Python automation, and secure development habits. Each repository includes a clear README with purpose, setup notes, ethical-use guidance, and next improvements.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Threat Detection Log Analyzer</h3>
+          <p class="tagline">Python blue-team tool for analyzing authentication logs and detecting suspicious login activity.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">SOC</span><span class="tag">Detection</span></div>
+          <a href="https://github.com/Khanu123/Threat-Detection-Log-Analyzer" target="_blank" rel="noreferrer">Open repository</a>
+        </article>
+        <article class="card">
+          <h3>Web Application Security Scanner</h3>
+          <p class="tagline">Flask-based security scanner prototype for authorized web application testing and reporting.</p>
+          <div class="tags"><span class="tag">Flask</span><span class="tag">Web Security</span><span class="tag">Python</span></div>
+          <a href="https://github.com/Khanu123/Web-app-security-scanner" target="_blank" rel="noreferrer">Open repository</a>
+        </article>
+        <article class="card">
+          <h3>Nmap Port Scanner</h3>
+          <p class="tagline">Python wrapper around Nmap for authorized scanning and structured report generation.</p>
+          <div class="tags"><span class="tag">Nmap</span><span class="tag">Networking</span><span class="tag">Reporting</span></div>
+          <a href="https://github.com/Khanu123/nmap-port-scanner" target="_blank" rel="noreferrer">Open repository</a>
+        </article>
+        <article class="card">
+          <h3>Cuckoo Sandbox Setup</h3>
+          <p class="tagline">Documentation-focused malware-analysis lab setup with isolation and safety guidance.</p>
+          <div class="tags"><span class="tag">Malware Analysis</span><span class="tag">Virtualization</span><span class="tag">Lab Safety</span></div>
+          <a href="https://github.com/Khanu123/cuckoo-sandbox-setup" target="_blank" rel="noreferrer">Open repository</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills and Tools</h2>
+      <p class="lead">Current focus areas I am building through practical projects and university study.</p>
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">Linux</span>
+        <span class="skill">Flask</span>
+        <span class="skill">Log Analysis</span>
+        <span class="skill">Nmap</span>
+        <span class="skill">Web Security</span>
+        <span class="skill">MITRE ATT&CK</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">Technical Documentation</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="lead">I am open to junior cybersecurity, SOC, IT security, and Python automation opportunities.</p>
+      <p><strong>Email:</strong> <a href="mailto:Umargreat2004@gmail.com">Umargreat2004@gmail.com</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Khanu123" target="_blank" rel="noreferrer">github.com/Khanu123</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built by Umar Khan Muhammad. Defensive security, ethical tooling, and practical learning.</p>
+  </footer>
 </body>
-
 </html>
