@@ -7,76 +7,102 @@
   <title>Umar Khan Muhammad | Cybersecurity Portfolio</title>
   <style>
     :root {
-      --bg: #08111f;
-      --bg2: #101b2f;
+      --bg: #07111f;
+      --panel: #0f1b2d;
+      --panel2: #12243c;
       --ink: #0f172a;
-      --muted: #536173;
-      --soft: #f6f8fb;
+      --muted: #5b6778;
+      --soft: #f5f7fb;
       --card: #ffffff;
-      --line: #dbe3ef;
+      --line: #dbe4ef;
       --accent: #0ea5e9;
-      --accent2: #22c55e;
-      --warn: #f59e0b;
+      --accent-dark: #0369a1;
+      --green: #16a34a;
+      --amber: #d97706;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: var(--soft); color: var(--ink); line-height: 1.55; }
-    a { color: #0369a1; text-decoration: none; }
+    body { margin: 0; font-family: Inter, Arial, Helvetica, sans-serif; background: var(--soft); color: var(--ink); line-height: 1.55; }
+    a { color: var(--accent-dark); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-    header { background: radial-gradient(circle at top right, #164e63, transparent 34%), linear-gradient(135deg, var(--bg), var(--bg2)); color: white; }
-    nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    header {
+      min-height: 720px;
+      color: white;
+      background:
+        linear-gradient(rgba(7, 17, 31, .82), rgba(7, 17, 31, .9)),
+        url("images/intro-bg.jpg") center/cover no-repeat;
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; }
     nav strong { font-size: 15px; letter-spacing: .03em; }
     nav .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
-    nav a { color: #dbeafe; }
-    .hero { padding: 70px 0 58px; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, .8fr); gap: 34px; align-items: center; }
-    .eyebrow { color: #7dd3fc; text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 700; }
-    h1 { font-size: clamp(38px, 6vw, 66px); line-height: 1.04; margin: 12px 0 18px; letter-spacing: 0; }
-    .hero p { color: #cbd5e1; font-size: 19px; max-width: 760px; margin: 0; }
+    nav a { color: #e0f2fe; }
+    .hero { min-height: 610px; display: grid; grid-template-columns: minmax(0, 1.24fr) minmax(320px, .76fr); gap: 38px; align-items: center; padding: 34px 0 70px; }
+    .eyebrow { color: #7dd3fc; text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 800; }
+    h1 { font-size: clamp(40px, 6vw, 70px); line-height: 1.02; margin: 14px 0 18px; letter-spacing: 0; max-width: 830px; }
+    .hero-copy { color: #d6e2f1; font-size: 19px; max-width: 780px; margin: 0; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-    .btn { display: inline-block; border-radius: 8px; padding: 12px 16px; font-weight: 700; border: 1px solid #38bdf8; color: white; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 8px; padding: 11px 16px; font-weight: 800; border: 1px solid #38bdf8; color: white; }
     .btn.primary { background: #38bdf8; color: #062032; }
-    .proof { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 8px; padding: 18px; }
-    .proof h2 { color: white; font-size: 18px; margin: 0 0 12px; }
+    .btn.dark { background: rgba(255,255,255,.08); }
+    .hero-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: 8px; overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,.32); }
+    .profile { display: grid; grid-template-columns: 92px 1fr; gap: 16px; align-items: center; padding: 18px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .profile img { width: 92px; height: 92px; object-fit: cover; border-radius: 8px; border: 2px solid rgba(255,255,255,.28); }
+    .profile h2 { margin: 0 0 4px; color: white; font-size: 20px; }
+    .profile p { margin: 0; color: #cbd5e1; font-size: 14px; }
+    .proof { padding: 18px; }
+    .proof h3 { margin: 0 0 12px; color: white; font-size: 17px; }
     .proof ul { margin: 0; padding-left: 18px; color: #dbeafe; }
     .proof li { margin: 8px 0; }
-    main { padding: 42px 0 54px; }
-    section { margin-bottom: 50px; }
+    main { padding: 44px 0 58px; }
+    section { margin-bottom: 56px; }
     .section-head { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-bottom: 18px; }
-    h2 { font-size: 30px; margin: 0; }
-    .lead { color: var(--muted); max-width: 790px; margin: 8px 0 0; }
+    h2 { font-size: 30px; line-height: 1.16; margin: 0; }
+    .lead { color: var(--muted); max-width: 800px; margin: 8px 0 0; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: -78px; position: relative; z-index: 2; }
+    .metric { background: white; border: 1px solid var(--line); border-radius: 8px; padding: 18px; box-shadow: 0 18px 45px rgba(15, 23, 42, .09); }
+    .metric strong { display: block; font-size: 30px; color: #0f172a; line-height: 1; }
+    .metric span { color: var(--muted); font-size: 13px; }
     .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 20px; box-shadow: 0 10px 30px rgba(15, 23, 42, .06); }
+    .card.featured { grid-column: span 2; background: linear-gradient(135deg, #ffffff, #eff6ff); border-color: #bfdbfe; }
     .card h3 { margin: 0 0 8px; font-size: 19px; }
     .card p { color: var(--muted); margin: 0 0 14px; }
+    .card .links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
     .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0; }
-    .tag { background: #e0f2fe; color: #075985; padding: 4px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+    .tag { background: #e0f2fe; color: #075985; padding: 4px 8px; border-radius: 999px; font-size: 12px; font-weight: 800; }
     .tag.green { background: #dcfce7; color: #166534; }
     .tag.amber { background: #fef3c7; color: #92400e; }
     .split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .metric-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
-    .metric { background: white; border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
-    .metric strong { display: block; font-size: 28px; color: #0f172a; }
-    .metric span { color: var(--muted); font-size: 13px; }
+    .report { background: #0f172a; color: #e5edf8; border-radius: 8px; padding: 18px; border: 1px solid #20304d; overflow: hidden; }
+    .report h3 { color: white; margin: 0 0 12px; }
+    .report table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .report th, .report td { padding: 8px; border-bottom: 1px solid #263856; text-align: left; }
+    .report th { color: #93c5fd; font-weight: 800; }
+    .callout { background: #ecfeff; border: 1px solid #bae6fd; border-left: 5px solid var(--accent); border-radius: 8px; padding: 18px; }
+    .callout h3 { margin-top: 0; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; font-weight: 800; font-size: 14px; }
     .timeline { border-left: 3px solid #bae6fd; padding-left: 18px; }
     .timeline article { margin-bottom: 18px; }
     .timeline h3 { margin: 0 0 4px; font-size: 17px; }
     .timeline p { margin: 0; color: var(--muted); }
-    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
-    .skill { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; font-weight: 700; font-size: 14px; }
-    .callout { background: #ecfeff; border: 1px solid #bae6fd; border-left: 5px solid var(--accent); border-radius: 8px; padding: 18px; }
-    .callout h3 { margin-top: 0; }
     footer { background: var(--bg); color: #cbd5e1; padding: 28px 0; text-align: center; }
     footer a { color: #7dd3fc; }
-    @media (max-width: 900px) {
+    @media (max-width: 940px) {
       .hero, .split { grid-template-columns: 1fr; }
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .metric-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .card.featured { grid-column: span 2; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: -44px; }
+      header { min-height: auto; }
     }
-    @media (max-width: 620px) {
+    @media (max-width: 640px) {
       nav { align-items: flex-start; flex-direction: column; }
-      .grid, .metric-row { grid-template-columns: 1fr; }
-      .hero { padding-top: 44px; }
+      .grid, .metrics { grid-template-columns: 1fr; }
+      .card.featured { grid-column: span 1; }
+      .hero { padding-top: 24px; }
+      .profile { grid-template-columns: 1fr; }
+      .profile img { width: 110px; height: 110px; }
     }
   </style>
 </head>
@@ -87,7 +113,7 @@
         <strong>Umar Khan Muhammad</strong>
         <div class="links">
           <a href="#projects">Projects</a>
-          <a href="#case-study">Case Study</a>
+          <a href="#reports">Reports</a>
           <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
@@ -96,62 +122,71 @@
       <div class="hero">
         <div>
           <div class="eyebrow">Cyber Security Graduate | SOC | Python Security Tooling</div>
-          <h1>Defensive security projects built around real analyst workflows.</h1>
-          <p>I build practical cybersecurity tools for SOC triage, phishing investigation, cloud IAM review, vulnerability prioritisation, and web security posture. My focus is clear evidence, risk scoring, and reports that help teams decide what to do next.</p>
+          <h1>Practical defensive security projects with evidence, reports, and clear remediation.</h1>
+          <p class="hero-copy">I build cybersecurity tools that mirror real analyst workflows: triaging alerts, reviewing IAM risk, analysing phishing emails, prioritising vulnerabilities, and explaining findings clearly.</p>
           <div class="actions">
             <a class="btn primary" href="https://github.com/Khanu123" target="_blank" rel="noreferrer">View GitHub</a>
-            <a class="btn" href="https://github.com/Khanu123/sentinel-soc-dashboard" target="_blank" rel="noreferrer">Flagship Project</a>
-            <a class="btn" href="mailto:Umargreat2004@gmail.com">Contact Me</a>
+            <a class="btn dark" href="https://github.com/Khanu123/sentinel-soc-dashboard" target="_blank" rel="noreferrer">Flagship Project</a>
+            <a class="btn dark" href="mailto:Umargreat2004@gmail.com">Contact Me</a>
           </div>
         </div>
-        <aside class="proof">
-          <h2>Portfolio Proof</h2>
-          <ul>
-            <li>5 flagship defensive cybersecurity projects</li>
-            <li>Python CLIs with sample data and tests</li>
-            <li>GitHub Actions on project repos</li>
-            <li>Case studies, report previews, and interview notes</li>
-            <li>BSc Cyber Security graduate, 2:1</li>
-          </ul>
+        <aside class="hero-card">
+          <div class="profile">
+            <img src="images/profile-pic.jpg" alt="Umar Khan Muhammad profile photo">
+            <div>
+              <h2>Umar Khan Muhammad</h2>
+              <p>BSc Cyber Security, 2:1<br>Junior SOC / Cyber Security candidate</p>
+            </div>
+          </div>
+          <div class="proof">
+            <h3>Portfolio Proof</h3>
+            <ul>
+              <li>5 flagship defensive cybersecurity projects</li>
+              <li>Tests, GitHub Actions, and sample datasets</li>
+              <li>Case studies, report previews, and interview notes</li>
+              <li>Hands-on vulnerability assessment experience</li>
+            </ul>
+          </div>
         </aside>
       </div>
     </div>
   </header>
 
   <main class="wrap">
-    <section>
-      <div class="metric-row">
-        <div class="metric"><strong>5</strong><span>Flagship security projects</span></div>
-        <div class="metric"><strong>SOC</strong><span>Alert triage and phishing analysis</span></div>
-        <div class="metric"><strong>AWS</strong><span>IAM least-privilege review</span></div>
-        <div class="metric"><strong>CI</strong><span>Tests and GitHub Actions</span></div>
-      </div>
+    <section class="metrics" aria-label="Portfolio metrics">
+      <div class="metric"><strong>5</strong><span>Flagship cyber projects</span></div>
+      <div class="metric"><strong>SOC</strong><span>Triage and phishing analysis</span></div>
+      <div class="metric"><strong>AWS</strong><span>IAM least-privilege review</span></div>
+      <div class="metric"><strong>CI</strong><span>Tests and GitHub Actions</span></div>
     </section>
 
     <section id="projects">
       <div class="section-head">
         <div>
-          <h2>Featured Cybersecurity Projects</h2>
-          <p class="lead">The strongest projects are defensive, documented, and built around realistic security team workflows.</p>
+          <h2>Featured Projects</h2>
+          <p class="lead">Built to show defensive security thinking, Python automation, reporting, and responsible tooling boundaries.</p>
         </div>
       </div>
       <div class="grid">
-        <article class="card">
+        <article class="card featured">
           <h3>Sentinel SOC Dashboard</h3>
-          <p>Groups raw alerts into analyst cases, scores priority, maps MITRE context, and exports HTML, CSV, JSON, and Markdown reports.</p>
-          <div class="tags"><span class="tag">SOC</span><span class="tag">Blue Team</span><span class="tag green">Tests + CI</span></div>
-          <a href="https://github.com/Khanu123/sentinel-soc-dashboard" target="_blank" rel="noreferrer">Open repository</a>
+          <p>Groups raw security alerts into analyst-ready cases, scores priority using severity and tactic diversity, maps MITRE context, and exports reports for triage.</p>
+          <div class="tags"><span class="tag">SOC</span><span class="tag">Blue Team</span><span class="tag green">Tests + CI</span><span class="tag amber">Case Study</span></div>
+          <div class="links">
+            <a href="https://github.com/Khanu123/sentinel-soc-dashboard" target="_blank" rel="noreferrer">Repository</a>
+            <a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/how-i-built-soc-alert-triage-tool.md" target="_blank" rel="noreferrer">Writeup</a>
+          </div>
         </article>
         <article class="card">
           <h3>Cloud IAM Risk Analyzer</h3>
-          <p>Reviews AWS IAM policy JSON for wildcard actions, risky PassRole, public principals, missing MFA conditions, and broad resource scope.</p>
-          <div class="tags"><span class="tag">AWS IAM</span><span class="tag">Cloud Security</span><span class="tag amber">Least Privilege</span></div>
+          <p>Reviews AWS IAM policy JSON for wildcard permissions, risky PassRole, public principals, missing MFA conditions, and broad resource scope.</p>
+          <div class="tags"><span class="tag">AWS IAM</span><span class="tag">Cloud Security</span></div>
           <a href="https://github.com/Khanu123/cloud-iam-risk-analyzer" target="_blank" rel="noreferrer">Open repository</a>
         </article>
         <article class="card">
           <h3>Phishing Email Analyzer</h3>
-          <p>Parses .eml files for suspicious URLs, authentication failures, sender mismatch, urgency language, risky attachments, and risk labels.</p>
-          <div class="tags"><span class="tag">Phishing</span><span class="tag">Email Security</span><span class="tag">SOC</span></div>
+          <p>Parses .eml files for suspicious URLs, authentication failures, sender mismatch, urgency language, attachments, and risk labels.</p>
+          <div class="tags"><span class="tag">Phishing</span><span class="tag">Email Security</span></div>
           <a href="https://github.com/Khanu123/phishing-email-analyzer" target="_blank" rel="noreferrer">Open repository</a>
         </article>
         <article class="card">
@@ -166,32 +201,32 @@
           <div class="tags"><span class="tag">AppSec</span><span class="tag">Security Headers</span></div>
           <a href="https://github.com/Khanu123/web-security-posture-auditor" target="_blank" rel="noreferrer">Open repository</a>
         </article>
-        <article class="card">
-          <h3>GitHub Profile</h3>
-          <p>A curated profile README tying together my cybersecurity projects, technical focus, and learning roadmap.</p>
-          <div class="tags"><span class="tag">Portfolio</span><span class="tag">Documentation</span></div>
-          <a href="https://github.com/Khanu123/Khanu123" target="_blank" rel="noreferrer">Open repository</a>
-        </article>
       </div>
     </section>
 
-    <section id="case-study" class="split">
+    <section id="reports" class="split">
+      <article class="report">
+        <h3>Sample SOC Report Output</h3>
+        <table>
+          <thead><tr><th>Priority</th><th>SLA</th><th>Host</th><th>MITRE</th></tr></thead>
+          <tbody>
+            <tr><td>100</td><td>Immediate</td><td>web-01</td><td>T1110, T1078</td></tr>
+            <tr><td>88</td><td>4 hours</td><td>win-07</td><td>T1059</td></tr>
+            <tr><td>33</td><td>Monitor</td><td>portal-01</td><td>T1595</td></tr>
+          </tbody>
+        </table>
+      </article>
       <article class="callout">
         <h3>Featured Writeup</h3>
         <p><strong>How I Built a SOC Alert Triage Tool</strong></p>
-        <p>This writeup explains the problem, design decisions, scoring model, what I learned, and how I would improve the project in a production environment.</p>
-        <a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/how-i-built-soc-alert-triage-tool.md" target="_blank" rel="noreferrer">Read the case study</a>
-      </article>
-      <article class="card">
-        <h3>What Employers Can See</h3>
-        <p>Each flagship repo is designed to show more than code: clear README, sample data, report output, tests, responsible-use boundaries, and next-step thinking.</p>
-        <p>This is the kind of evidence that supports junior SOC, cyber analyst, cloud security, and security tooling applications.</p>
+        <p>A readable case study covering the problem, design choices, scoring model, what I learned, and how I would improve it in production.</p>
+        <a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/how-i-built-soc-alert-triage-tool.md" target="_blank" rel="noreferrer">Read the writeup</a>
       </article>
     </section>
 
     <section id="skills">
       <h2>Skills</h2>
-      <p class="lead">Current focus areas from university, project work, and hands-on labs.</p>
+      <p class="lead">Current focus areas from university, project work, training contract experience, and hands-on labs.</p>
       <div class="skills">
         <span class="skill">Python</span>
         <span class="skill">SOC Triage</span>
