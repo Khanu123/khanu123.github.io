@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentinel SOC Dashboard Demo | Umar Khan Muhammad</title>
+  <style>
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #f5f7fb; color: #0f172a; line-height: 1.55; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 34px 22px; }
+    header { background: #07111f; color: white; }
+    header .wrap { padding-top: 48px; padding-bottom: 48px; }
+    a { color: #0369a1; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .eyebrow { color: #38bdf8; text-transform: uppercase; letter-spacing: .12em; font-size: 12px; font-weight: 800; }
+    h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.05; margin: 10px 0 14px; }
+    header p { color: #cbd5e1; max-width: 760px; font-size: 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .btn { border: 1px solid #38bdf8; border-radius: 8px; padding: 11px 15px; color: white; font-weight: 800; }
+    .btn.primary { background: #38bdf8; color: #062032; }
+    .panel { background: white; border: 1px solid #dbe4ef; border-radius: 8px; padding: 20px; box-shadow: 0 12px 32px rgba(15,23,42,.07); margin-top: 22px; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .metric { border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; background: #f8fafc; }
+    .metric strong { display: block; font-size: 28px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid #e2e8f0; padding: 12px; text-align: left; vertical-align: top; }
+    th { background: #eef2f7; }
+    .high { color: #b91c1c; font-weight: 800; }
+    .medium { color: #b45309; font-weight: 800; }
+    footer { text-align: center; padding: 24px; color: #64748b; }
+    @media (max-width: 760px) { .metrics { grid-template-columns: 1fr 1fr; } table { font-size: 14px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">Hosted Demo Report</div>
+      <h1>Sentinel SOC Dashboard</h1>
+      <p>This sample report shows how the project converts raw security alerts into analyst-ready cases with priority, SLA, MITRE context, and recommended action.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/Khanu123/sentinel-soc-dashboard" target="_blank" rel="noreferrer">View Repository</a>
+        <a class="btn" href="index.html">Back to Portfolio</a>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="panel">
+      <div class="metrics">
+        <div class="metric"><span>Total Alerts</span><strong>4</strong></div>
+        <div class="metric"><span>Cases</span><strong>3</strong></div>
+        <div class="metric"><span>Critical</span><strong>1</strong></div>
+        <div class="metric"><span>Output</span><strong>HTML</strong></div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Priority</th><th>Source IP</th><th>Host</th><th>Severity</th><th>MITRE Context</th><th>Recommended Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="high">100</td>
+            <td>198.51.100.44</td>
+            <td>web-01</td>
+            <td class="high">critical</td>
+            <td>T1110 - Brute Force<br>T1078 - Valid Accounts</td>
+            <td>Escalate immediately, isolate host, preserve evidence, and review account activity.</td>
+          </tr>
+          <tr>
+            <td class="medium">88</td>
+            <td>10.0.4.22</td>
+            <td>win-07</td>
+            <td class="high">high</td>
+            <td>T1059 - Command and Scripting Interpreter</td>
+            <td>Investigate within SLA, enrich source IP, and validate endpoint telemetry.</td>
+          </tr>
+          <tr>
+            <td>33</td>
+            <td>203.0.113.9</td>
+            <td>portal-01</td>
+            <td>low</td>
+            <td>T1595 - Active Scanning</td>
+            <td>Monitor and close if no additional suspicious activity appears.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer>Sample data only. Built for defensive cybersecurity portfolio demonstration.</footer>
+</body>
+</html>
