@@ -180,13 +180,13 @@ a:focus-visible, summary:focus-visible { outline:3px solid #0ea5e9; outline-offs
 <div class="grid selected-grid"><article class="card">
           <img src="https://raw.githubusercontent.com/Khanu123/sentinel-soc-dashboard/main/docs/screenshots/report-preview.png" alt="Sentinel SOC Dashboard report preview">
           <h3>Sentinel SOC Dashboard</h3>
-          <p><strong>Output:</strong> Eight synthetic alerts become five prioritised cases, exported as HTML, CSV, JSON, and Markdown.</p><p><strong>Decision and tradeoff:</strong> Grouping by source IP and host keeps the logic inspectable, but has no time window and can merge unrelated activity.</p><p class="limit"><strong>Scope:</strong> A Python demonstration using supplied alerts, with no live Microsoft Sentinel connection. Priority scores and ATT&amp;CK mappings are review heuristics.</p>
+          <p><strong>Output:</strong> The eight-alert introduction produces five cases. An extended 1,014-alert synthetic exercise checks daily sessions, shuffled input, incomplete identities, and scanner context.</p><p><strong>Decision and tradeoff:</strong> Grouping by source IP and host now uses fixed 30-minute windows. This separates daily sessions, while long-running incidents can still cross a window boundary.</p><p class="limit"><strong>Scope:</strong> A Python demonstration using supplied alerts, with no live Microsoft Sentinel connection. Priority scores and ATT&amp;CK mappings are review heuristics.</p>
           <div class="tags"><span class="tag">SOC Analyst</span><span class="tag">Python</span><span class="tag">MITRE ATT&CK</span><span class="tag green">Tests + CI</span></div>
           <div class="links">
             <a href="https://github.com/Khanu123/sentinel-soc-dashboard" target="_blank" rel="noreferrer">Repository</a>
             <a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/examples/example_soc_report.md" target="_blank" rel="noreferrer">Sample report</a>
             <a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/how-i-built-soc-alert-triage-tool.md" target="_blank" rel="noreferrer">Writeup</a>
-            <a href="sentinel-soc-demo.html">Demo report</a>
+            <a href="sentinel-soc-demo.html">Demo report</a><a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/validation/investigation.md" target="_blank" rel="noopener noreferrer">Investigation exercise</a><a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/validation/extended-results.json" target="_blank" rel="noopener noreferrer">Validation results</a>
           </div>
         </article>
 <article class="card">
@@ -296,7 +296,14 @@ a:focus-visible, summary:focus-visible { outline:3px solid #0ea5e9; outline-offs
         </article></div></details></section>
 <section id="about" class="split">
 <article class="card"><h2>About me</h2><p>I graduated from Anglia Ruskin University with a 2:1 in Cyber Security. My penetration-testing training contract involved vulnerability assessment, alert review, and remediation reporting.</p><p>I am seeking a junior SOC or cyber security analyst role where I can develop investigation skills and contribute Python automation. Reports, source code, and lab instructions are linked throughout this portfolio.</p></article>
-<article class="card"><h2>Next validation steps</h2><p><strong>Detection labs:</strong> Document SPL and KQL execution in the target platforms, including ingestion settings, query results, and false-positive tuning.</p><p><strong>Triage tool:</strong> Add larger fixtures, missing-field cases, and time-aware grouping checks before making broader performance claims.</p><p><strong>Cloud lab:</strong> Complete and document an authorised AWS deployment and teardown. Current DevOps evidence covers local and CI validation.</p></article></section>
+<article class="card"><h2>Next validation steps</h2><p><strong>Detection labs:</strong> Document SPL and KQL execution in the target platforms, including ingestion settings, query results, and false-positive tuning.</p><p><strong>Triage tool:</strong> The 1,014-alert exercise and 18 unit tests now cover bounded grouping and incomplete identities. Next: malformed input handling, deduplication, and richer correlation.</p><p><strong>Cloud lab:</strong> Complete and document an authorised AWS deployment and teardown. Current DevOps evidence covers local and CI validation.</p></article></section>
+<section id="investigation" class="callout">
+<h2>Investigation exercise: a scanner at priority 100</h2>
+<p>A constructed lab case starts with six high-severity reconnaissance alerts. The initial hypothesis is hostile scanning. An authored exercise ticket matches the source, target, and time window, supporting a revised conclusion of authorised activity.</p>
+<p>The tool still assigns priority 100: this observed limitation shows why a score needs analyst review. A separate suspicious login sequence remains prioritised. The exercise also exposed unbounded correlation across days; the revised implementation uses 30-minute windows.</p>
+<p><strong>Reproducible local evidence:</strong> 1,014 synthetic alerts, 10/10 exercise checks, and 18/18 unit tests. These are regression results, not operational detection accuracy or live SIEM validation.</p>
+<p><a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/validation/investigation.md" target="_blank" rel="noopener noreferrer">Read the evidence and revised conclusion</a> &middot; <a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/validation/extended-results.json" target="_blank" rel="noopener noreferrer">Inspect generated results</a></p>
+</section>
 <section id="reports" class="split">
       <article class="report">
         <h3>Synthetic SOC report preview</h3>
