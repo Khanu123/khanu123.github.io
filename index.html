@@ -108,9 +108,25 @@
       .profile { grid-template-columns: 1fr; }
       .profile img { width: 110px; height: 110px; }
     }
-  </style>
+  
+.selected-grid { margin-top:24px; align-items:start; }
+.card { min-width:0; }
+.selected-grid .card img { object-fit:contain; }
+.limit { border-left:3px solid #7dd3fc; padding-left:12px; font-size:14px; }
+details { background:white; border:1px solid var(--line); border-radius:8px; padding:20px; }
+summary { cursor:pointer; font-weight:800; font-size:18px; }
+details[open] > summary { margin-bottom:20px; }
+.development { margin-top:20px; }
+.development summary { font-size:16px; }
+a:focus-visible, summary:focus-visible { outline:3px solid #0ea5e9; outline-offset:4px; }
+.skip-link { position:absolute; top:-80px; left:16px; background:white; padding:12px; z-index:10; }
+.skip-link:focus { top:12px; }
+.card .links a { padding:5px 0; }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+</style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
   <header>
     <div class="wrap">
       <nav>
@@ -126,15 +142,13 @@
       <div class="hero">
         <div>
           <div class="eyebrow">Cyber Security Graduate | SOC | Python Security Tooling</div>
-          <h1>Practical defensive security projects with evidence, reports, and clear remediation.</h1>
-          <p class="hero-copy">I build cybersecurity tools that mirror real analyst workflows: triaging alerts, reviewing IAM risk, analysing phishing emails, prioritising vulnerabilities, and explaining findings clearly.</p>
+          <h1>Cyber Security graduate seeking a junior SOC analyst role.</h1>
+          <p class="hero-copy">Based in Crawley / London, with penetration-testing experience and a BSc Cyber Security (2:1). My projects explore alert triage, detection logic, and Python automation using documented lab data.</p>
           <div class="actions">
-            <a class="btn primary" href="https://github.com/Khanu123" target="_blank" rel="noreferrer">View GitHub</a>
-            <a class="btn dark" href="https://www.linkedin.com/in/umar-khan-muhammad-0200b524a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a class="btn dark" href="https://github.com/Khanu123/sentinel-soc-dashboard" target="_blank" rel="noreferrer">Flagship Project</a>
-            <a class="btn dark" href="assets/Umar_Khan_Cyber_Security_CV_Updated.pdf" target="_blank" rel="noreferrer">Download CV</a>
-            <a class="btn dark" href="mailto:Umargreat2004@gmail.com">Contact Me</a>
-          </div>
+<a class="btn primary" href="#projects">View selected work</a>
+<a class="btn dark" href="assets/Umar_Khan_Cyber_Security_CV_Updated.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+<a class="btn dark" href="https://www.linkedin.com/in/umar-khan-muhammad-0200b524a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+</div>
         </div>
         <aside class="hero-card">
           <div class="profile">
@@ -145,11 +159,11 @@
             </div>
           </div>
           <div class="proof">
-            <h3>Portfolio Proof</h3>
+            <h3>At a glance</h3>
             <ul>
-              <li>6 flagship defensive cybersecurity projects</li>
-              <li>Tests, GitHub Actions, and sample datasets</li>
-              <li>Case studies, report previews, and interview notes</li>
+              <li>Three selected projects with source and reports</li>
+              <li>Synthetic and sanitised datasets with documented limits</li>
+              <li>UK settled status; no sponsorship required</li>
               <li>Hands-on vulnerability assessment experience</li>
             </ul>
           </div>
@@ -158,27 +172,16 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="metrics" aria-label="Portfolio metrics">
-      <div class="metric"><strong>6</strong><span>Flagship cyber projects</span></div>
-      <div class="metric"><strong>SOC</strong><span>Triage and phishing analysis</span></div>
-      <div class="metric"><strong>AWS</strong><span>IAM least-privilege review</span></div>
-      <div class="metric"><strong>CI</strong><span>Tests and GitHub Actions</span></div>
-    </section>
+  <main id="main" class="wrap">
+    
 
     <section id="projects">
-      <div class="section-head">
-        <div>
-          <h2>Featured Projects</h2>
-          <p class="lead">Built to show SOC triage, SIEM detection logic, machine-learning security analysis, cloud security review, DevOps deployment automation, reporting, and responsible tooling boundaries.</p>
-        </div>
-      </div>
-      <div class="grid">
-        <article class="card featured">
+<h2>Selected work</h2><p class="lead">Three projects to start with: the task, the output, and the limits of the available evidence.</p>
+<div class="grid selected-grid"><article class="card">
           <img src="https://raw.githubusercontent.com/Khanu123/sentinel-soc-dashboard/main/docs/screenshots/report-preview.png" alt="Sentinel SOC Dashboard report preview">
           <h3>Sentinel SOC Dashboard</h3>
-          <p>Groups raw security alerts into analyst-ready cases with MITRE ATT&CK mapping, severity scoring, analyst notes, false-positive handling, and exportable reports.</p>
-          <div class="tags"><span class="tag amber">Flagship</span><span class="tag">SOC Analyst</span><span class="tag">Python</span><span class="tag">MITRE ATT&CK</span><span class="tag green">Tests + CI</span><span class="tag amber">Advanced</span></div>
+          <p><strong>Output:</strong> Eight synthetic alerts become five prioritised cases, exported as HTML, CSV, JSON, and Markdown.</p><p><strong>Decision and tradeoff:</strong> Grouping by source IP and host keeps the logic inspectable, but has no time window and can merge unrelated activity.</p><p class="limit"><strong>Scope:</strong> A Python demonstration using supplied alerts, with no live Microsoft Sentinel connection. Priority scores and ATT&amp;CK mappings are review heuristics.</p>
+          <div class="tags"><span class="tag">SOC Analyst</span><span class="tag">Python</span><span class="tag">MITRE ATT&CK</span><span class="tag green">Tests + CI</span></div>
           <div class="links">
             <a href="https://github.com/Khanu123/sentinel-soc-dashboard" target="_blank" rel="noreferrer">Repository</a>
             <a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/examples/example_soc_report.md" target="_blank" rel="noreferrer">Sample report</a>
@@ -186,11 +189,11 @@
             <a href="sentinel-soc-demo.html">Demo report</a>
           </div>
         </article>
-        <article class="card featured">
-          <img src="images/projects/splunk-detection-lab.png" alt="Splunk Detection Lab dashboard preview">
+<article class="card">
+          <img src="images/projects/splunk-detection-lab.png" alt="Splunk Detection Lab generated report preview">
           <h3>Splunk Detection Lab</h3>
-          <p>Defensive SIEM lab with SPL searches, synthetic authentication logs, Python validation, tests, and analyst playbooks for brute-force, password spray, and privileged-login detections.</p>
-          <div class="tags"><span class="tag amber">Flagship</span><span class="tag">Splunk</span><span class="tag">SOC Analyst</span><span class="tag">SPL</span><span class="tag green">Tests</span></div>
+          <p><strong>Output:</strong> Three SPL detections for brute force, password spraying, and unusual privileged login, with synthetic logs and local Python checks.</p><p><strong>Analyst judgement:</strong> Review service-account retries, approved testing, and change tickets before escalating authentication failures.</p><p class="limit"><strong>Scope:</strong> Linked evidence covers SPL source and Python validation. It does not establish successful execution inside Splunk.</p>
+          <div class="tags"><span class="tag">Splunk</span><span class="tag">SOC Analyst</span><span class="tag">SPL</span><span class="tag green">Tests</span></div>
           <div class="links">
             <a href="https://github.com/Khanu123/splunk-detection-lab" target="_blank" rel="noreferrer">Repository</a>
             <a href="https://github.com/Khanu123/splunk-detection-lab/blob/main/docs/screenshots/report-preview.png" target="_blank" rel="noreferrer">Screenshot</a>
@@ -198,8 +201,21 @@
             <a href="https://github.com/Khanu123/splunk-detection-lab/tree/main/spl" target="_blank" rel="noreferrer">SPL detections</a>
           </div>
         </article>
-        <article class="card" id="devops-deployment-lab">
-          <img src="images/projects/devops-deployment-lab.png" alt="DevOps Deployment Lab SOC dashboard showing synthetic alerts, prioritised cases and release metadata">
+<article class="card">
+          <img src="images/projects/insider-threat-detection-final-project.png" alt="Insider Threat Detection Final Project anomaly detection preview">
+          <h3>Insider Threat Detection Final Project</h3>
+          <p><strong>Output:</strong> A university project exploring user activity with Isolation Forest and Random Forest, with plots and an example analyst report.</p><p><strong>Interpretation:</strong> An anomalous session needs investigation. A model score does not establish malicious intent.</p><p class="limit"><strong>Scope:</strong> The public version uses a small sanitised sample. It does not establish detection accuracy on real employee activity.</p>
+          <div class="tags"><span class="tag amber">Final Year Project</span><span class="tag">Machine Learning</span><span class="tag">Insider Threat</span><span class="tag">Python</span><span class="tag">SOC</span></div>
+          <div class="links">
+            <a href="https://github.com/Khanu123/insider-threat-detection-final-project" target="_blank" rel="noreferrer">Repository</a>
+            <a href="https://github.com/Khanu123/insider-threat-detection-final-project/blob/main/docs/screenshots/anomaly_plot.png" target="_blank" rel="noreferrer">Screenshot</a>
+            <a href="https://github.com/Khanu123/insider-threat-detection-final-project/blob/main/docs/SAMPLE_ANALYST_REPORT.md" target="_blank" rel="noreferrer">Analyst report</a>
+            <a href="https://github.com/Khanu123/insider-threat-detection-final-project/blob/main/docs/ETHICS_AND_LIMITATIONS.md" target="_blank" rel="noreferrer">Ethics notes</a>
+          </div>
+        </article></div></section>
+<section id="more-projects"><details><summary>More projects: cloud security, DevOps, and analysis tools</summary>
+<p class="lead">Supporting labs and learning projects. Each repository describes its deployment and validation status.</p>
+<div class="grid"><article class="card" id="devops-deployment-lab">
           <h3>DevOps Deployment Lab</h3>
           <p>Containerised SOC dashboard with Docker, GitHub Actions CI/CD, Terraform AWS infrastructure, health checks, monitoring configuration, and tested recovery drills. Verified locally and in CI; live AWS deployment is pending.</p>
           <div class="tags"><span class="tag">DevOps</span><span class="tag">DevSecOps</span><span class="tag">Docker</span><span class="tag">Terraform</span><span class="tag">AWS</span><span class="tag green">Tests + CI</span></div>
@@ -210,11 +226,10 @@
             <a href="https://github.com/Khanu123/devops-deployment-lab/blob/main/docs/case-study.md" target="_blank" rel="noreferrer">Case study</a>
           </div>
         </article>
-        <article class="card">
-          <img src="images/projects/microsoft-sentinel-siem-lab.png" alt="Microsoft Sentinel SIEM Lab incident preview">
+<article class="card">
           <h3>Microsoft Sentinel SIEM Lab</h3>
           <p>KQL analytics, Sentinel-style sample logs, analytic rule metadata, incident triage notes, and tests for common SOC detections.</p>
-          <div class="tags"><span class="tag amber">Flagship</span><span class="tag">Microsoft Sentinel</span><span class="tag">KQL</span><span class="tag">MITRE ATT&CK</span></div>
+          <div class="tags"><span class="tag">Microsoft Sentinel</span><span class="tag">KQL</span><span class="tag">MITRE ATT&CK</span></div>
           <div class="links">
             <a href="https://github.com/Khanu123/microsoft-sentinel-siem-lab" target="_blank" rel="noreferrer">Repository</a>
             <a href="https://github.com/Khanu123/microsoft-sentinel-siem-lab/blob/main/docs/screenshots/report-preview.png" target="_blank" rel="noreferrer">Screenshot</a>
@@ -222,23 +237,10 @@
             <a href="https://github.com/Khanu123/microsoft-sentinel-siem-lab/blob/main/docs/incident-triage-playbook.md" target="_blank" rel="noreferrer">Triage playbook</a>
           </div>
         </article>
-        <article class="card">
-          <img src="images/projects/insider-threat-detection-final-project.png" alt="Insider Threat Detection Final Project anomaly detection preview">
-          <h3>Insider Threat Detection Final Project</h3>
-          <p>University final-year project using Python and machine learning to detect insider-threat style behaviour from user activity patterns, with anomaly detection, feature importance, tests, and analyst reporting.</p>
-          <div class="tags"><span class="tag amber">Final Year Project</span><span class="tag">Machine Learning</span><span class="tag">Insider Threat</span><span class="tag">Python</span><span class="tag">SOC</span></div>
-          <div class="links">
-            <a href="https://github.com/Khanu123/insider-threat-detection-final-project" target="_blank" rel="noreferrer">Repository</a>
-            <a href="https://github.com/Khanu123/insider-threat-detection-final-project/blob/main/docs/screenshots/anomaly_plot.png" target="_blank" rel="noreferrer">Screenshot</a>
-            <a href="https://github.com/Khanu123/insider-threat-detection-final-project/blob/main/docs/SAMPLE_ANALYST_REPORT.md" target="_blank" rel="noreferrer">Analyst report</a>
-            <a href="https://github.com/Khanu123/insider-threat-detection-final-project/blob/main/docs/ETHICS_AND_LIMITATIONS.md" target="_blank" rel="noreferrer">Ethics notes</a>
-          </div>
-        </article>
-        <article class="card">
-          <img src="images/projects/azure-security-posture-reviewer.png" alt="Azure Security Posture Reviewer findings preview">
+<article class="card">
           <h3>Azure Security Posture Reviewer</h3>
           <p>Cloud security review tool for Azure storage, NSGs, Key Vault, and public IP exposure, with remediation guidance and unit tests.</p>
-          <div class="tags"><span class="tag amber">Flagship</span><span class="tag">Azure</span><span class="tag">Cloud Security</span><span class="tag">Python</span></div>
+          <div class="tags"><span class="tag">Azure</span><span class="tag">Cloud Security</span><span class="tag">Python</span></div>
           <div class="links">
             <a href="https://github.com/Khanu123/azure-security-posture-reviewer" target="_blank" rel="noreferrer">Repository</a>
             <a href="https://github.com/Khanu123/azure-security-posture-reviewer/blob/main/docs/screenshots/report-preview.png" target="_blank" rel="noreferrer">Screenshot</a>
@@ -246,48 +248,43 @@
             <a href="https://github.com/Khanu123/azure-security-posture-reviewer/blob/main/docs/remediation-guide.md" target="_blank" rel="noreferrer">Remediation guide</a>
           </div>
         </article>
-        <article class="card">
-          <img src="https://raw.githubusercontent.com/Khanu123/cloud-iam-risk-analyzer/main/docs/screenshots/report-preview.png" alt="Cloud IAM Risk Analyzer report preview">
+<article class="card">
           <h3>Cloud IAM Risk Analyzer</h3>
           <p>Reviews AWS IAM policy JSON for wildcard permissions, risky PassRole, public principals, missing MFA conditions, and broad resource scope.</p>
-          <div class="tags"><span class="tag amber">Flagship</span><span class="tag">Cloud Security</span><span class="tag">AWS IAM</span><span class="tag">Python</span><span class="tag amber">Advanced</span></div>
+          <div class="tags"><span class="tag">Cloud Security</span><span class="tag">AWS IAM</span><span class="tag">Python</span></div>
           <div class="links">
             <a href="https://github.com/Khanu123/cloud-iam-risk-analyzer" target="_blank" rel="noreferrer">Repository</a>
             <a href="https://github.com/Khanu123/cloud-iam-risk-analyzer/blob/main/docs/screenshots/report-preview.png" target="_blank" rel="noreferrer">Screenshot</a>
           </div>
         </article>
-        <article class="card">
-          <img src="https://raw.githubusercontent.com/Khanu123/phishing-email-analyzer/main/docs/screenshots/report-preview.png" alt="Phishing Email Analyzer report preview">
+<article class="card">
           <h3>Phishing Email Analyzer</h3>
           <p>Parses .eml files for suspicious URLs, authentication failures, sender mismatch, urgency language, attachments, and risk labels.</p>
-          <div class="tags"><span class="tag amber">Flagship</span><span class="tag">SOC Analyst</span><span class="tag">Email Security</span><span class="tag">Python</span></div>
+          <div class="tags"><span class="tag">SOC Analyst</span><span class="tag">Email Security</span><span class="tag">Python</span></div>
           <div class="links">
             <a href="https://github.com/Khanu123/phishing-email-analyzer" target="_blank" rel="noreferrer">Repository</a>
             <a href="https://github.com/Khanu123/phishing-email-analyzer/blob/main/docs/screenshots/report-preview.png" target="_blank" rel="noreferrer">Screenshot</a>
           </div>
         </article>
-        <article class="card">
-          <img src="https://raw.githubusercontent.com/Khanu123/vuln-intel-prioritizer/main/docs/screenshots/report-preview.png" alt="Vulnerability Intelligence Prioritizer report preview">
+<article class="card">
           <h3>Vulnerability Intelligence Prioritizer</h3>
           <p>Ranks CVEs using CVSS, known exploitation, internet exposure, and asset criticality, then assigns remediation SLAs.</p>
-          <div class="tags"><span class="tag amber">Flagship</span><span class="tag">Vulnerability Management</span><span class="tag">Risk Scoring</span><span class="tag">Python</span></div>
+          <div class="tags"><span class="tag">Vulnerability Management</span><span class="tag">Risk Scoring</span><span class="tag">Python</span></div>
           <div class="links">
             <a href="https://github.com/Khanu123/vuln-intel-prioritizer" target="_blank" rel="noreferrer">Repository</a>
             <a href="https://github.com/Khanu123/vuln-intel-prioritizer/blob/main/docs/screenshots/report-preview.png" target="_blank" rel="noreferrer">Screenshot</a>
           </div>
         </article>
-        <article class="card">
-          <img src="https://raw.githubusercontent.com/Khanu123/web-security-posture-auditor/main/docs/screenshots/report-preview.png" alt="Web Security Posture Auditor report preview">
+<article class="card">
           <h3>Web Security Posture Auditor</h3>
           <p>Passively audits HTTPS and common security headers including HSTS, CSP, X-Frame-Options, and Referrer-Policy.</p>
-          <div class="tags"><span class="tag amber">Flagship</span><span class="tag">AppSec</span><span class="tag">Security Headers</span><span class="tag">Python</span></div>
+          <div class="tags"><span class="tag">AppSec</span><span class="tag">Security Headers</span><span class="tag">Python</span></div>
           <div class="links">
             <a href="https://github.com/Khanu123/web-security-posture-auditor" target="_blank" rel="noreferrer">Repository</a>
             <a href="https://github.com/Khanu123/web-security-posture-auditor/blob/main/docs/screenshots/report-preview.png" target="_blank" rel="noreferrer">Screenshot</a>
           </div>
         </article>
-        <article class="card">
-          <img src="images/projects/security-research-notes.png" alt="Security Research Notes topic preview">
+<article class="card">
           <h3>Security Research Notes</h3>
           <p>Defensive notes covering OWASP Top 10, phishing analysis, Windows event logs, Splunk/Sigma/YARA basics, cloud IAM risk, and vulnerability management.</p>
           <div class="tags"><span class="tag green">Active Learning</span><span class="tag">SOC</span><span class="tag">AppSec</span><span class="tag">Cloud Security</span></div>
@@ -296,28 +293,14 @@
             <a href="https://github.com/Khanu123/security-research-notes/blob/main/docs/screenshots/report-preview.png" target="_blank" rel="noreferrer">Screenshot</a>
             <a href="https://github.com/Khanu123/security-research-notes/blob/main/ROADMAP.md" target="_blank" rel="noreferrer">Roadmap</a>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="about" class="split">
-      <article class="card">
-        <h2>About Me</h2>
-        <p>I am a Cyber Security graduate with a 2:1 from Anglia Ruskin University, focused on junior SOC analyst, cyber security analyst, SIEM, cloud security, and application security roles.</p>
-        <p>I build practical defensive projects using Python, Splunk SPL, Microsoft Sentinel KQL, MITRE ATT&CK mapping, machine-learning anomaly detection, phishing analysis, vulnerability prioritisation, and Azure/AWS security review. My portfolio is designed to show how I investigate, document, test, and communicate security findings.</p>
-        <p>Earlier learning projects include log analysis, Nmap automation, secure credentials handling, Flask security-scanner prototypes, and small Python fundamentals projects. They are kept as evidence of progression, while the flagship projects above show my strongest current cyber work.</p>
-      </article>
-      <article class="card">
-        <h2>What I Am Learning Next</h2>
-        <p>I am currently learning Microsoft Sentinel incident handling, Splunk detection tuning, Sigma rule structure, YARA basics, Azure security posture management, AWS IAM security, and Python security automation.</p>
-        <p>My next portfolio improvements are SIEM dashboards, Terraform/IaC security checks, richer detection datasets, report screenshots, and small maintainable updates over time.</p>
-      </article>
-    </section>
-
-    <section id="reports" class="split">
+        </article></div></details></section>
+<section id="about" class="split">
+<article class="card"><h2>About me</h2><p>I graduated from Anglia Ruskin University with a 2:1 in Cyber Security. My penetration-testing training contract involved vulnerability assessment, alert review, and remediation reporting.</p><p>I am seeking a junior SOC or cyber security analyst role where I can develop investigation skills and contribute Python automation. Reports, source code, and lab instructions are linked throughout this portfolio.</p></article>
+<article class="card"><h2>Next validation steps</h2><p><strong>Detection labs:</strong> Document SPL and KQL execution in the target platforms, including ingestion settings, query results, and false-positive tuning.</p><p><strong>Triage tool:</strong> Add larger fixtures, missing-field cases, and time-aware grouping checks before making broader performance claims.</p><p><strong>Cloud lab:</strong> Complete and document an authorised AWS deployment and teardown. Current DevOps evidence covers local and CI validation.</p></article></section>
+<section id="reports" class="split">
       <article class="report">
-        <h3>Sample SOC Report Output</h3>
-        <table>
+        <h3>Synthetic SOC report preview</h3>
+        <p>Illustrative lab priorities and response targets; these are configured heuristics, not measured risk probabilities or operational SLAs.</p><table>
           <thead><tr><th>Priority</th><th>SLA</th><th>Host</th><th>MITRE</th></tr></thead>
           <tbody>
             <tr><td>100</td><td>Immediate</td><td>web-01</td><td>T1110, T1078</td></tr>
@@ -340,7 +323,7 @@
       <div class="skills">
         <span class="skill">Python</span>
         <span class="skill">SOC Triage</span>
-        <span class="skill">MITRE ATTACK</span>
+        <span class="skill">MITRE ATT&amp;CK</span>
         <span class="skill">Phishing Analysis</span>
         <span class="skill">AWS IAM</span>
         <span class="skill">Nmap</span>
@@ -368,18 +351,18 @@
         </div>
       </div>
       <div>
-        <h2>Certifications</h2>
+        <h2>Professional certificates</h2>
         <div class="timeline">
           <article>
             <h3>Google Cybersecurity Professional Certificate</h3>
-            <p>8-course professional certificate covering security foundations, Linux, SQL, SIEM concepts, IDS, detection and response, Python automation, and job preparation. <a href="https://coursera.org/verify/professional-cert/MGEFGHD22PJS" target="_blank" rel="noreferrer">Verify</a></p>
+            <p>Security foundations, Linux, SQL, detection and response, and Python automation. <a href="https://coursera.org/verify/professional-cert/MGEFGHD22PJS" target="_blank" rel="noreferrer">Verify</a></p>
           </article>
           <article>
             <h3>Microsoft Cybersecurity Analyst Professional Certificate</h3>
-            <p>9-course professional certificate covering operating systems, networking, cloud security, threat mitigation, Azure AD, Microsoft Defender, compliance, and SC-900 preparation. <a href="https://coursera.org/verify/professional-cert/TRVDNZ7C85RY" target="_blank" rel="noreferrer">Verify</a></p>
+            <p>Networking, cloud security, Microsoft security tools, and compliance. <a href="https://coursera.org/verify/professional-cert/TRVDNZ7C85RY" target="_blank" rel="noreferrer">Verify</a></p>
           </article>
-          <article>
-            <h3>CompTIA a+ Cyber</h3>
+<details class="development"><summary>Short courses and job simulations</summary><p>Additional learning activities, listed separately from professional certificates.</p>          <article>
+            <h3>CompTIA a+ Cyber (Coursera course)</h3>
             <p>Coursera course authorized by CompTIA, focused on IT and cyber foundations relevant to junior support and security roles. <a href="https://coursera.org/verify/FBFGGP5VB2VV" target="_blank" rel="noreferrer">Verify</a></p>
           </article>
           <article>
@@ -406,14 +389,15 @@
             <h3>Forage Cybersecurity Analyst Job Simulation - IAM</h3>
             <p>Completed practical tasks in IAM fundamentals, IAM strategy assessment, custom IAM solutions, and platform integration. Issued June 2025.</p>
           </article>
+</details>
         </div>
       </div>
     </section>
 
     <section id="contact" class="callout">
       <h2>Contact</h2>
-      <p><strong>Open to junior SOC Analyst, Cyber Security Analyst, IT Security, Cloud Security, and Python security automation roles.</strong></p>
-      <p>If you are reviewing my portfolio, the best starting points are Sentinel SOC Dashboard, Splunk Detection Lab, Microsoft Sentinel SIEM Lab, Insider Threat Detection Final Project, and Azure Security Posture Reviewer.</p>
+      <p><strong>Seeking junior SOC and cyber security analyst opportunities in Crawley / London.</strong></p>
+      <p>Start with the three selected projects above. Contact me by email or LinkedIn to discuss a role.</p>
       <p><strong>Email:</strong> <a href="mailto:Umargreat2004@gmail.com">Umargreat2004@gmail.com</a></p>
       <p><strong>GitHub:</strong> <a href="https://github.com/Khanu123" target="_blank" rel="noreferrer">github.com/Khanu123</a></p>
       <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/umar-khan-muhammad-0200b524a/" target="_blank" rel="noopener noreferrer">Connect with me on LinkedIn</a></p>
