@@ -296,13 +296,13 @@ a:focus-visible, summary:focus-visible { outline:3px solid #0ea5e9; outline-offs
         </article></div></details></section>
 <section id="about" class="split">
 <article class="card"><h2>About me</h2><p>I graduated from Anglia Ruskin University with a 2:1 in Cyber Security. My penetration-testing training contract involved vulnerability assessment, alert review, and remediation reporting.</p><p>I am seeking a junior SOC or cyber security analyst role where I can develop investigation skills and contribute Python automation. Reports, source code, and lab instructions are linked throughout this portfolio.</p></article>
-<article class="card"><h2>Next validation steps</h2><p><strong>Detection labs:</strong> Document SPL and KQL execution in the target platforms, including ingestion settings, query results, and false-positive tuning.</p><p><strong>Triage tool:</strong> The 1,014-alert exercise and 18 unit tests now cover bounded grouping and incomplete identities. Next: malformed input handling, deduplication, and richer correlation.</p><p><strong>Cloud lab:</strong> Complete and document an authorised AWS deployment and teardown. Current DevOps evidence covers local and CI validation.</p></article></section>
+<article class="card"><h2>Next validation steps</h2><p><strong>Detection labs:</strong> Document SPL and KQL execution in the target platforms, including ingestion settings, query results, and false-positive tuning.</p><p><strong>Triage tool:</strong> The 1,014-alert exercise and 34 unit tests now cover bounded grouping and incomplete identities. Input validation and exact-event deduplication are now covered; next is richer correlation and live telemetry.</p><p><strong>Cloud lab:</strong> Complete and document an authorised AWS deployment and teardown. Current DevOps evidence covers local and CI validation.</p></article></section>
 <section id="investigation" class="callout">
-<h2>Investigation exercise: a scanner at priority 100</h2>
-<p>A constructed lab case starts with six high-severity reconnaissance alerts. The initial hypothesis is hostile scanning. An authored exercise ticket matches the source, target, and time window, supporting a revised conclusion of authorised activity.</p>
-<p>The tool still assigns priority 100: this observed limitation shows why a score needs analyst review. A separate suspicious login sequence remains prioritised. The exercise also exposed unbounded correlation across days; the revised implementation uses 30-minute windows.</p>
-<p><strong>Reproducible local evidence:</strong> 1,014 synthetic alerts, 10/10 exercise checks, and 18/18 unit tests. These are regression results, not operational detection accuracy or live SIEM validation.</p>
-<p><a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/validation/investigation.md" target="_blank" rel="noopener noreferrer">Read the evidence and revised conclusion</a> &middot; <a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/validation/extended-results.json" target="_blank" rel="noopener noreferrer">Inspect generated results</a></p>
+<h2>Three cases. Three different review decisions.</h2>
+<p>A suspicious login sequence needs escalation. An approved scanner needs scoped verification. An encoded command with missing context stays unresolved. These authored synthetic exercises show the evidence behind each decision.</p>
+<p><strong>Input quality:</strong> 15 rows become 11 accepted alerts, one removed duplicate, and three diagnosed rejections. Strict mode rejects invalid input; partial loading requires explicit opt-in.</p>
+<p><strong>Validation:</strong> 34 unit tests, two exercises with 10 checks each, and a verified clean package install. The larger exercise covers 1,014 synthetic alerts.</p>
+<p><a class="evidence-link" href="investigations.html">Follow the investigation walkthrough &rarr;</a> &middot; <a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/validation/scenario-results.json" target="_blank" rel="noopener noreferrer">Inspect generated results</a></p>
 </section>
 <section id="reports" class="split">
       <article class="report">
@@ -325,23 +325,13 @@ a:focus-visible, summary:focus-visible { outline:3px solid #0ea5e9; outline-offs
     </section>
 
     <section id="skills">
-      <h2>Skills</h2>
-      <p class="lead">Current focus areas from university, project work, training contract experience, and hands-on labs.</p>
-      <div class="skills">
-        <span class="skill">Python</span>
-        <span class="skill">SOC Triage</span>
-        <span class="skill">MITRE ATT&amp;CK</span>
-        <span class="skill">Phishing Analysis</span>
-        <span class="skill">AWS IAM</span>
-        <span class="skill">Nmap</span>
-        <span class="skill">Burp Suite</span>
-        <span class="skill">OpenVAS</span>
-        <span class="skill">Digital Forensics</span>
-        <span class="skill">Security Reporting</span>
-        <span class="skill">GitHub Actions</span>
-        <span class="skill">Technical Documentation</span>
-      </div>
-    </section>
+<h2>Skills, linked to work</h2>
+<p class="lead">Review the implementation and outputs behind each skill.</p>
+<div class="grid selected-grid">
+<article class="card"><h3>Investigation</h3><p>False-positive review, competing hypotheses, and evidence gaps.</p><a href="investigations.html">Review three case decisions</a></article>
+<article class="card"><h3>Python and testing</h3><p>Row validation, UTC normalisation, duplicate handling, and 34 unit tests.</p><a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/tests/test_ingestion.py" target="_blank" rel="noopener noreferrer">Inspect input-quality tests</a></article>
+<article class="card"><h3>Detection logic</h3><p>Authentication detections expressed as SPL and KQL source.</p><a href="https://github.com/Khanu123/splunk-detection-lab/tree/main/spl" target="_blank" rel="noopener noreferrer">SPL</a> &middot; <a href="https://github.com/Khanu123/microsoft-sentinel-siem-lab/tree/main/kql" target="_blank" rel="noopener noreferrer">KQL</a></article>
+</div></section>
 
     <section id="experience" class="split">
       <div>

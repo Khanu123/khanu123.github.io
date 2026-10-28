@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Three synthetic SOC investigation walkthroughs: suspicious login, approved maintenance, and unresolved administration activity.">
+<title>Investigation walkthrough | Umar Khan Muhammad</title>
+<style>
+:root{color-scheme:light;--ink:#142339;--muted:#4c6078;--line:#dce5ef;--blue:#075985}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.65;color:var(--ink);background:#f4f7fb}
+a{color:var(--blue);text-underline-offset:4px}a:focus-visible{outline:3px solid #0ea5e9;outline-offset:5px}
+.wrap{max-width:1120px;margin:auto;padding:0 28px}.masthead{background:#0b1424;color:#f0f6fc;padding:26px 0 56px}.masthead a{color:#9bdcf7}
+nav{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:46px;font-size:14px}
+.eyebrow{color:#6ee7d2;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+h1{font-size:clamp(34px,5vw,58px);line-height:1.1;max-width:850px;letter-spacing:-.03em;margin:16px 0}
+.intro{color:#d0dceb;max-width:770px;font-size:18px}.source{color:#b4c5d8;font-size:14px;margin-top:24px}
+main.wrap{padding:32px 28px 60px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px}.metric,.card,.panel{background:white;border:1px solid var(--line);border-radius:12px;padding:24px}
+.metric strong{display:block;font-size:30px;line-height:1.2}.metric span{font-size:13px;color:var(--muted)}
+h2{font-size:28px;margin:0 0 12px;line-height:1.25}h3{font-size:21px;line-height:1.3;margin:14px 0}
+.lead{color:var(--muted);max-width:830px}.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px;margin-bottom:36px}.card{border-top:4px solid #0ea5e9;min-width:0}.card p{font-size:15px;color:var(--muted)}.card strong{color:var(--ink)}
+.card.urgent{border-top-color:#dc5454}.card.approved{border-top-color:#138569}.card.pending{border-top-color:#c18211}.label{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:800}
+.urgent .label{color:#a42727}.approved .label{color:#086449}.pending .label{color:#805409}
+.score{border-top:1px solid var(--line);padding-top:14px;margin-top:20px;font-size:14px}
+.panel{margin-bottom:24px}.quality{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.pill{background:#eef5fb;padding:8px 12px;border-radius:8px;font-size:14px}
+pre{background:#0b1424;color:#e2edf9;padding:20px;border-radius:8px;overflow:auto;font-size:13px}code{font-family:Consolas,monospace}
+.links{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px}footer{padding:24px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media(max-width:800px){.cases{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}nav{margin-bottom:30px}}
+@media(max-width:440px){.wrap{padding:0 20px}main.wrap{padding:24px 20px 48px}.card,.panel,.metric{padding:20px}}
+</style></head><body>
+<div class="masthead"><div class="wrap">
+<nav aria-label="Page navigation"><a href="index.html">&larr; Umar Khan Muhammad / Portfolio</a><a href="https://github.com/Khanu123/sentinel-soc-dashboard">Source repository</a></nav>
+<div class="eyebrow">SOC investigation / Synthetic lab</div>
+<h1>A score starts the review.<br>The evidence shapes the decision.</h1>
+<p class="intro">Three cases move from an initial hypothesis to a review decision. One needs escalation, one has scoped approval, and one stays unresolved.</p>
+<p class="source">Authored exercises with generated results. These are not workplace incidents or automated verdicts.</p>
+</div></div>
+<main class="wrap">
+<div class="metrics" aria-label="Validation summary"><div class="metric"><strong>34</strong><span>Passing unit tests</span></div><div class="metric"><strong>20</strong><span>Checks across two exercises</span></div><div class="metric"><strong>1,014</strong><span>Alerts in the larger fixture</span></div><div class="metric"><strong>3</strong><span>Contrasting investigation cases</span></div></div>
+<h2>Same tool. Different context.</h2><p class="lead">Priority is a triage heuristic, not a probability of compromise. Review decisions below use the authored fixture context, including what is still missing.</p>
+<div class="cases">
+<article class="card urgent"><div class="label">01 / Escalate for investigation</div><h3>Suspicious privileged login</h3><p><strong>Signal:</strong> Five failed logins followed by a successful login from the same source against the same host.</p><p><strong>Context:</strong> No approved activity is provided in the exercise.</p><p><strong>Decision:</strong> Escalate to review identity and endpoint telemetry. Compromise is not yet confirmed.</p><div class="score"><strong>6 alerts &middot; Priority 100</strong><br>Next: MFA, session activity, and device history.</div></article>
+<article class="card approved"><div class="label">02 / Scoped authorised activity</div><h3>Approved maintenance</h3><p><strong>Signal:</strong> Three high-severity scanner findings also produce a high-priority case.</p><p><strong>Context:</strong> Exercise ticket LAB-043 matches the source, target, and 10:00&ndash;10:15 UTC window.</p><p><strong>Decision:</strong> Record the scoped approval. Avoid a permanent blanket allowlist.</p><div class="score"><strong>3 alerts &middot; Priority 100</strong><br>Known limit: the score still over-prioritises benign activity.</div></article>
+<article class="card pending"><div class="label">03 / Keep unresolved</div><h3>Unverified administration</h3><p><strong>Signal:</strong> Two encoded administration-command alerts could have multiple explanations.</p><p><strong>Context:</strong> The maintenance claim lacks command contents, a parent process, and a verified ticket.</p><p><strong>Decision:</strong> Request more evidence. A plausible explanation is insufficient for closure.</p><div class="score"><strong>2 alerts &middot; Priority 66</strong><br>Next: process tree, command contents, and ticket verification.</div></article>
+</div>
+<section class="panel"><h2>Account for every input row</h2><p class="lead">The smaller scenario fixture deliberately includes duplicates and invalid rows. Strict mode rejects invalid input; partial loading requires an explicit flag.</p>
+<div class="quality"><span class="pill"><strong>15</strong> input rows</span><span class="pill"><strong>11</strong> accepted alerts</span><span class="pill"><strong>1</strong> exact duplicate removed</span><span class="pill"><strong>3</strong> rejected with reasons</span></div>
+<p>Malformed timestamps, unsupported severity values, and missing titles receive row-specific errors. Timestamps normalise to UTC. Duplicate removal compares every normalised alert field; distinct times and analyst context stay separate.</p>
+<div class="links"><a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/validation/scenario-results.json">Generated scenario results</a><a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/tests/test_ingestion.py">Input-quality tests</a><a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/src/sentinel_soc_dashboard/ingestion.py">Validation implementation</a></div></section>
+<section class="panel"><h2>Run it yourself</h2><p class="lead">From the repository root after installing the package in a virtual environment. The scenario command explicitly opts into partial loading because the fixture contains invalid rows.</p>
+<pre><code>python -m pip install .
+python -m unittest discover -s tests -v
+python scripts/validate_scenarios.py
+python -m sentinel_soc_dashboard.cli \
+  --alerts sample_data/investigation_scenarios.json \
+  --skip-invalid --diagnostics input-quality.json</code></pre>
+<p>For PowerShell, enter the CLI command on one line. Open <code>soc_report.html</code> and compare its cases with <code>input-quality.json</code>.</p>
+<p><strong>Setup verified:</strong> a new Windows virtual environment, Python 3.12.14, a non-editable package install, and a CLI run outside the source tree without PYTHONPATH.</p>
+<div class="links"><a href="https://github.com/Khanu123/sentinel-soc-dashboard/blob/main/docs/validation/walkthrough.md">Complete setup and walkthrough</a><a href="https://github.com/Khanu123/sentinel-soc-dashboard/actions">CI verification</a></div></section>
+<section class="panel"><h2>What this evidence does not establish</h2><p>These tests verify defined behaviour on authored lab fixtures. They do not establish real-world detection accuracy, production readiness, or live Splunk / Microsoft Sentinel execution. Fixed windows can split related events; ATT&amp;CK mappings are simplified; approved activity can still receive a high score.</p></section>
+</main><footer><div class="wrap">Umar Khan Muhammad &middot; <a href="index.html">Portfolio</a> &middot; <a href="https://www.linkedin.com/in/umar-khan-muhammad-0200b524a/">LinkedIn</a></div></footer>
+</body></html>
